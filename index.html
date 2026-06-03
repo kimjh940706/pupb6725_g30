@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit A Survey | Office of Academic Effectiveness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=IBM+Plex+Sans:wght@400;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #fff;
+    }
+
+    /* ── Top GT logo bar ── */
+    .gt-top-bar {
+      background: #b3a369;
+      padding: 8px 15px;
+    }
+
+    .gt-top-bar img {
+      height: 50px;
+    }
+
+    .gt-logo-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gt-logo-icon {
+      width: 52px;
+      height: 52px;
+    }
+
+    .gt-logo-img {
+      height: 44px;
+      width: auto;
+    }
+
+    .gt-wordmark {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 0.5px;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    /* ── Office name bar ── */
+    .office-bar {
+      padding: 10px 15px 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .office-bar h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #003057;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 0 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    nav ul li a:hover {
+      background: #f5f5f5;
+    }
+
+    nav ul li a .caret {
+      font-size: 10px;
+      color: #666;
+    }
+
+    .nav-search {
+      margin-left: auto;
+      padding: 8px 0;
+    }
+
+    .nav-search input {
+      border: 1px solid #ccc;
+      padding: 5px 8px;
+      font-size: 13px;
+    }
+
+    nav .divider {
+      width: 1px;
+      height: 20px;
+      background: #ccc;
+      margin: 0 4px;
+      align-self: center;
+    }
+
+    /* ── Hero banner ── */
+    .hero {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #b3a369 0%, #003057 60%, #4a90d9 100%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-overlay-inner {
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    .hero-welcome {
+      font-size: 52px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      color: #fff;
+      font-style: italic;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: #fff;
+      margin-top: 6px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    /* ── Main content ── */
+    main {
+      padding: 30px 15px 60px;
+    }
+
+    .page-heading {
+      font-size: 28px;
+      font-weight: bold;
+      color: #b3a369;
+      margin-bottom: 16px;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    .intro-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* ── Form container ── */
+    .form-container {
+      background: #f0efed;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 30px 30px 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-family: 'Barlow Semi Condensed', Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .required-mark {
+      color: #c00;
+      margin-right: 4px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="date"] {
+      max-width: 440px;
+    }
+
+    .form-group input[type="date"] {
+      max-width: 220px;
+      font-family: 'Roboto', Arial, sans-serif;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .form-group input[type="number"] {
+      max-width: 200px;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-group textarea.short {
+      min-height: 80px;
+    }
+
+    .file-hint {
+      font-size: 12px;
+      color: #555;
+      margin-top: 3px;
+    }
+
+    /* ── CAPTCHA section ── */
+    .captcha-section {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+    }
+
+    .captcha-section .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #c00;
+      margin-bottom: 12px;
+    }
+
+    .captcha-section .section-title span {
+      color: #c00;
+      margin-right: 4px;
+    }
+
+    .captcha-math {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .captcha-section input[type="number"] {
+      width: 80px;
+      border: 1px solid #ccc;
+      padding: 5px 8px;
+      font-size: 14px;
+    }
+
+    .captcha-hint {
+      font-size: 12px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .captcha-note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    /* ── Rating / radio group ── */
+    .rating-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .rating-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .rating-option input[type="radio"] {
+      accent-color: #b3a369;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* ── Submit button ── */
+    .submit-btn {
+      margin-top: 24px;
+      background: #b3a369;
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .submit-btn:hover {
+      background: #9e8f5a;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #b3a369;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GT Logo Bar -->
+  <div class="gt-top-bar">
+    <img src="images/gt-logo.svg" alt="Georgia Tech" class="gt-logo-img" />
+  </div>
+
+  <!-- Office Name Bar -->
+  <div class="office-bar">
+    <h1>Office of Academic Effectiveness</h1>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">About <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Assessment <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Surveys <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Program Review <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Accreditation <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Committees <span class="caret">▾</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#">Events</a></li>
+      <li class="nav-search">
+        <input type="text" placeholder="🔍" aria-label="Search" />
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Banner -->
+  <div class="hero">
+    <div class="hero-overlay">
+      <div class="hero-overlay-inner">
+        <div class="hero-welcome">WELCOME TO</div>
+        <div class="hero-title">The Office of Academic Effectiveness</div>
+        <div class="hero-subtitle">Your Partner in Educational Quality and Institutional Success</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h2 class="page-heading">TA Experience Survey</h2>
+    <p class="intro-text">
+      This survey is designed for Teaching Assistants (TAs) at Georgia Tech. Your feedback helps
+      improve TA support, training, and overall course delivery. All responses are anonymous and
+      reviewed by the Office of Academic Effectiveness. Fields marked with
+      <span style="color:#c00;">*</span> are required.
+    </p>
+
+    <div class="form-container">
+      <form id="survey-form" novalidate>
+
+        <!-- Course Info -->
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Course Name &amp; Number</label>
+          <input type="text" name="course_name" placeholder="e.g. PUBP 6725" required />
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Course Instructor</label>
+          <input type="text" name="instructor" required />
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Semester &amp; Year</label>
+          <select name="semester" required style="width:100%; max-width:300px; border:1px solid #ccc; padding:6px 8px; font-size:14px; background:#fff; font-family:inherit;">
+            <option value="">-- Select --</option>
+            <option>Spring 2025</option>
+            <option>Summer 2025</option>
+            <option>Fall 2025</option>
+            <option>Spring 2026</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>TA Role</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="ta_role" value="head_ta" required /> Head TA</label>
+            <label class="rating-option"><input type="radio" name="ta_role" value="grading_ta" /> Grading TA</label>
+            <label class="rating-option"><input type="radio" name="ta_role" value="lab_ta" /> Lab / Recitation TA</label>
+            <label class="rating-option"><input type="radio" name="ta_role" value="online_ta" /> Online / Async TA</label>
+            <label class="rating-option"><input type="radio" name="ta_role" value="other" /> Other</label>
+          </div>
+        </div>
+
+        <!-- Workload -->
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Average Weekly Hours Spent as TA</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="workload" value="0-5" required /> 0–5 hrs</label>
+            <label class="rating-option"><input type="radio" name="workload" value="6-10" /> 6–10 hrs</label>
+            <label class="rating-option"><input type="radio" name="workload" value="11-15" /> 11–15 hrs</label>
+            <label class="rating-option"><input type="radio" name="workload" value="16-20" /> 16–20 hrs</label>
+            <label class="rating-option"><input type="radio" name="workload" value="20+" /> 20+ hrs</label>
+          </div>
+        </div>
+
+        <!-- Support & Training -->
+        <div class="form-group">
+          <label><span class="required-mark">*</span>How well were you prepared / trained before the semester began?</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="training" value="5" required /> 5 — Very well prepared</label>
+            <label class="rating-option"><input type="radio" name="training" value="4" /> 4 — Mostly prepared</label>
+            <label class="rating-option"><input type="radio" name="training" value="3" /> 3 — Somewhat prepared</label>
+            <label class="rating-option"><input type="radio" name="training" value="2" /> 2 — Minimally prepared</label>
+            <label class="rating-option"><input type="radio" name="training" value="1" /> 1 — Not prepared at all</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>How supportive was the course instructor toward TAs?</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="instructor_support" value="5" required /> 5 — Extremely supportive</label>
+            <label class="rating-option"><input type="radio" name="instructor_support" value="4" /> 4 — Supportive</label>
+            <label class="rating-option"><input type="radio" name="instructor_support" value="3" /> 3 — Neutral</label>
+            <label class="rating-option"><input type="radio" name="instructor_support" value="2" /> 2 — Unsupportive</label>
+            <label class="rating-option"><input type="radio" name="instructor_support" value="1" /> 1 — Very unsupportive</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Overall, how would you rate your TA experience?</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="overall_rating" value="5" required /> 5 — Excellent</label>
+            <label class="rating-option"><input type="radio" name="overall_rating" value="4" /> 4 — Good</label>
+            <label class="rating-option"><input type="radio" name="overall_rating" value="3" /> 3 — Average</label>
+            <label class="rating-option"><input type="radio" name="overall_rating" value="2" /> 2 — Below Average</label>
+            <label class="rating-option"><input type="radio" name="overall_rating" value="1" /> 1 — Poor</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>Would you TA for this course again?</label>
+          <div class="rating-group">
+            <label class="rating-option"><input type="radio" name="ta_again" value="yes" required /> Yes</label>
+            <label class="rating-option"><input type="radio" name="ta_again" value="maybe" /> Maybe</label>
+            <label class="rating-option"><input type="radio" name="ta_again" value="no" /> No</label>
+          </div>
+        </div>
+
+        <!-- Open-ended -->
+        <div class="form-group">
+          <label><span class="required-mark">*</span>What aspects of the TA role did you find most rewarding?</label>
+          <textarea name="rewarding" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>What were the biggest challenges you faced as a TA?</label>
+          <textarea name="challenges" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><span class="required-mark">*</span>What support or resources would have made your TA experience better?</label>
+          <textarea name="improvements" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Any additional comments or suggestions for future TAs or the department?</label>
+          <textarea name="comments"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Review</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; Georgia Institute of Technology &nbsp;|&nbsp; * HTML structure inspired by gatech.edu for PUBP 6725 academic simulation.
+  </footer>
+
+  <script>
+    document.getElementById('survey-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Form submitted successfully!');
+    });
+  </script>
+
+</body>
+</html>
